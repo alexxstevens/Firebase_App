@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+    <link rel="stylesheet" type="text/css" href="style.css">
+  <title>OrganizeMe</title>
+</head>
+
+<body>
+<div id="header">
+  <span id="heading"><a href="index.html">
+      <h1 id="head">OrganizeMe</h1>
+    </a></span><br>
+      <nav>
+        <ul class="nav nav-tabs" id="navList">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="register.html">
+              Register User
+            </a></li>
+          <li class="nav-item">
+            <a class="nav-link" href="javascript:void" id="logout">
+              Logout
+            </a>
+          </li>
+        </ul>
+      </nav>
+</div>
+
+<div class="jumbotron">
+</div>
+
+  <div class="content">
+    <h1>OrganizeMe</h1>
+    <p>Welcome to OrganizeMe.  The web-based app that helps your run your life more efficiently.</p>
+    <div id="list">
+    <h4>Your OrganizeMe Apps:</h4>
+    <ul>
+      <li><a href="Todo/script.html" target="_blank">To Do List</a></li>
+      <li><a href="https://calendar.google.com/calendar/r?pli=1" target="_blank">Calendar</a></li>
+      <li><a href="index.html">More Apps Coming Soon!</a></li>
+    </ul>
+    </div>
+</div>
+<br>
+<!-- Footer -->
+<footer>
+  <div class="container-fluid text-center">
+      <!-- Grid column -->
+        <!-- Links --><br>
+        <h5 class="text-uppercase">Links</h5>
+        <ul class="list-unstyled">
+          <li>
+            <a href="index.html">Home</a>
+          </li>
+          <li>
+            <a href="register.html">Register New User</a>
+          </li>
+      <li>
+        <a href="javascript:void" id="logout">
+          Logout
+        </a>
+      </li>
+        </ul>
+          <hr class="clearfix w-50">
+    </div>
+  <div class="footer-copyright text-center"> 2020
+    <a href="index.html"> OrganizeMe</a>
+  </div>
+</footer>
+
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+<!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
+
+<!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-analytics.js"></script>
+
+<!-- Add Firebase products that you want to use -->
+<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-firestore.js"></script>
+
+
+<script>
+  // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyDbwVMEHq0PYpK6NYGiL4khGd3InnGorVY",
+      authDomain: "organize-me-app.firebaseapp.com",
+      databaseURL: "https://organize-me-app.firebaseio.com",
+      projectId: "organize-me-app",
+      storageBucket: "organize-me-app.appspot.com",
+      messagingSenderId: "569900537175",
+      appId: "1:569900537175:web:9d5b567fa593b964bd5a12",
+      measurementId: "G-WJHJY34CWV"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+
+
+    firebase.auth().onAuthStateChanged(function (user) {
+      if (user) {
+        // User is signed in.
+        var displayName = user.displayName;
+        var email = user.email;
+        var emailVerified = user.emailVerified;
+        var photoURL = user.photoURL;
+        var isAnonymous = user.isAnonymous;
+        var uid = user.uid;
+        var providerData = user.providerData;
+        // ...
+      } else {
+        window.location = 'login.html';
+      }
+    });
+    
+      var el = document.getElementById('logout');
+      el.onclick = logout;
+
+
+      function logout() {
+        firebase.auth().signOut().then(function () {
+          // Sign-out successful.
+        }).catch(function (error) {
+          console.log("error" + error);
+        });
+      }
+
+
+
+
+
+  </script>
+</body>
+
+</html>

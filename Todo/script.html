@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en">
+
+<!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>To Do List</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+</head>
+
+<body>
+  <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+  <div id="listContainer">
+    <h1>Things To Do</h1>
+    <p>Type your task in the space below and click add to add to the list.  Delete tasks by double clicking and reorder tasks by dragging with your mouse.</p><br>
+    <div id="Submit">
+      <div id="toDoSubmit">
+        <input id="inputTxt" type="text" name="listItem" placeholder="Type your task here."/>
+      </div>
+      <button id="add">Add</button>
+    </div>
+    <br>
+    <div id="toDoItem">
+      <ul id="sortable"></ul>
+    </div>
+    <br>
+    <div id="startOver">
+      <button class="btn startOver" onClick="refreshPage()">Start List Over</button>
+    </div>
+  </div>
+
+  <script>
+    //start over button
+    function refreshPage() {
+      window.location.reload();
+    }
+    //add task
+    $(document).ready(
+      function () {
+        $('#add').click(
+          function () {
+            var toAdd = $('input[name=listItem]').val();
+            $('ul').append('<li contentEditable="true" id="editable"><span name="check"><input type="checkbox" id="checkBox" name="toDoBox" value="Item" >' + toAdd + '</span></li>');
+          });
+      })
+    // delete task
+    $(document).on('dblclick', 'li', function () {
+      $(this).toggleClass('strike').fadeOut('slow');
+    });
+
+    //sortable
+    $('#sortable').sortable({
+        revert: true,
+      });
+    //sortable and maintain contenteditable function on bottom task
+      $(document).on("click", "#sortable", function () {
+        $("[contenteditable]", this).focus()
+      })
+  </script>
+  
+</body>
+</html>
+

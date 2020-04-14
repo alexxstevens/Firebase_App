@@ -1,0 +1,147 @@
+
+body {
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  margin-right: 15%;
+  margin-left: 15%;
+}
+
+p {
+  font-size: 1.3em;
+}
+
+/* style header */
+#header {
+  text-align: center;
+  border-bottom: 2px solid white;
+  background-color: rgba(54, 102, 163, 0.575);
+  padding-top: 0px;
+}
+
+#header a:hover {
+  color: white;
+}
+
+
+.nav-item {
+  border: black;
+  border-bottom: .001px solid white;
+  padding-left: 5px;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+#navList a {
+  border-color: rgb(243, 243, 243);
+  background-color: white;
+  color: black;
+}
+
+#navList a:hover {
+  background-color: lightgrey;
+}
+
+.nav-tabs {
+    display: flex;
+    justify-content: left;
+    flex-direction: row;
+}
+
+
+span#heading {
+  display: inline-block;
+  margin-top: 20px;
+}
+
+h1#head {
+  color: black;
+  font-size: 4em;
+  font-family: 'Orbitron', sans-serif;
+}
+
+h3#header {
+  font-size: 5em;
+  font-weight: bold;
+}
+
+div.jumbotron {
+  background-image: url(background.jfif); background-size: cover;
+  height: 350px;
+  margin-bottom: 10px;
+}
+
+footer {
+background-color: rgba(110, 142, 163, 0.164);
+padding: 0px;
+}
+
+footer > ul {
+  padding: none;
+  margin-bottom: none;
+}
+
+div#list h4{
+  background-color: rgba(54, 101, 163, 0.432);
+  border-radius: 3px;
+  padding: 15px;
+  margin-top: 0px;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+div#list {
+  background-color: rgba(139, 179, 206, 0.178);
+  padding-bottom: 3px;
+  border-radius: 3px;
+  padding-top: 0px;
+
+}
+
+div#list p {
+  text-align: center;
+}
+
+div#list ul {
+    list-style-type: none;
+    padding-top: 2px;
+    padding-bottom: 5px;
+}
+
+div#list li {
+  margin: 13px;
+  font-weight: bold;
+}
+
+div#list a {
+  color: black;
+  font-size: 1.1em;
+}
+
+div#list a:hover {
+  color: blue;
+}
+
+div.container-fluid {
+  border-top: 1px solid black;
+}
+
+div.footer-copyright {
+  padding-bottom: 10px;
+}
+
+div.squeeze {
+  margin: 5%;
+}
+
+p.squeeze {
+  font-size: 1.2em;
+  font-style: italic;
+  padding: 0px;
+}
+
+
+
+
+
+input.form-control {
+  width: 75%;
+}
